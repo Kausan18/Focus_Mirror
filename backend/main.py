@@ -36,14 +36,15 @@ app.add_middleware(
 # These are stubbed as empty routers now so the app starts cleanly.
 # We'll fill them in each subsequent step.
 
-from api import auth, sessions, focus, users, preferences, privacy
+from api import auth, sessions, focus, users, preferences, privacy, dl
 
-app.include_router(auth.router, prefix="/api/auth", tags=["Auth"])
-app.include_router(sessions.router, prefix="/api/session", tags=["Sessions"])
-app.include_router(focus.router, prefix="/api/focus", tags=["Focus"])
-app.include_router(users.router, prefix="/api/user", tags=["Users"])
+app.include_router(auth.router,        prefix="/api/auth",        tags=["Auth"])
+app.include_router(sessions.router,    prefix="/api/session",     tags=["Sessions"])
+app.include_router(focus.router,       prefix="/api/focus",       tags=["Focus"])
+app.include_router(users.router,       prefix="/api/user",        tags=["Users"])
 app.include_router(preferences.router, prefix="/api/preferences", tags=["Preferences"])
-app.include_router(privacy.router, prefix="/api/privacy", tags=["Privacy"])
+app.include_router(privacy.router,     prefix="/api/privacy",     tags=["Privacy"])
+app.include_router(dl.router,          prefix="/api/dl",          tags=["DL Pipeline"])
 
 
 # ─── Health check ─────────────────────────────────────────────────────────
